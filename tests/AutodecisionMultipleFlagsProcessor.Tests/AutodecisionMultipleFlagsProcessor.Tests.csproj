@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../../src/Services/AutodecisionContracts/AutodecisionCore.Contracts.csproj" />
+    <ProjectReference Include="../../src/shared/AutodecisionContracts/AutodecisionCore.Contracts.csproj" />
     <ProjectReference Include="../../src/Services/AutodecisionMultipleFlagsProcessor/AutodecisionMultipleFlagsProcessor.csproj" />
   </ItemGroup>
 

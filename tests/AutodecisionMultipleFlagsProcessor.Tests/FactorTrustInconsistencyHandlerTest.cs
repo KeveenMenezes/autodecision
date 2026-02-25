@@ -1,13 +1,10 @@
 ﻿using AutodecisionCore.Contracts.Enums;
 using AutodecisionCore.Contracts.ViewModels.Application;
-using AutodecisionMultipleFlagsProcessor.Extensions;
 using AutodecisionMultipleFlagsProcessor.Handlers;
 using AutodecisionMultipleFlagsProcessor.Services;
 using AutodecisionMultipleFlagsProcessor.Tests.TestHelper;
-using Microsoft.Diagnostics.Tracing.Parsers.Kernel;
 using Microsoft.Extensions.Logging;
 using Moq;
-using Nest;
 
 namespace AutodecisionMultipleFlagsProcessor.Tests
 {
@@ -18,8 +15,8 @@ namespace AutodecisionMultipleFlagsProcessor.Tests
 
         public FactorTrustInconsistencyHandlerTest()
         {
-            _mockLogger = new Mock<ILogger<FactorTrustInconsistencyHandler>>(); 
-            _mockFlagHelper = new Mock<IFlagHelper>(); 
+            _mockLogger = new Mock<ILogger<FactorTrustInconsistencyHandler>>();
+            _mockFlagHelper = new Mock<IFlagHelper>();
 
             FlagHelperMockUtility.AddDefaultBehaviors(_mockFlagHelper);
         }
