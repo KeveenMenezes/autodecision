@@ -1,0 +1,41 @@
+# docker compose down && docker compose up -d --build
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.6.0
+
+  kafka:
+    image: confluentinc/cp-kafka:7.6.0
+    depends_on:
+      - zookeeper
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    depends_on:
+      - kafka
+
+  data-publisher-api:
+    build:
+      context: .
+      dockerfile: src/apis/BmgMoney.DataPublisher.Api/Dockerfile
+    depends_on:
+      - kafka
+      - redis
+
+  data-responder-api:
+    build:
+      context: .
+      dockerfile: src/apis/BmgMoney.DataResponder.Api/Dockerfile
+    depends_on:
+      - kafka
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    depends_on:
+      - elasticsearch
+  
+  redis:
+    image: redis:latest
