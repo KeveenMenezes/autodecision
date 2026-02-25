@@ -18,7 +18,6 @@
   </ItemGroup>
 
 <ItemGroup>
-    <PackageReference Include="AutodecisionCore.Contracts" />
     <PackageReference Include="BMGMoney.FeatureToggle" />
     <PackageReference Include="BmgMoney.LogClient" />
     <PackageReference Include="BMGMoney.SDK.V2" />
