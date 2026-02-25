@@ -36,4 +36,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../autodecision-contracts/AutodecisionCore.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
