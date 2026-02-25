@@ -1,0 +1,12 @@
+[
+    {
+        "name": "autodecision-multiple-flags-processor",
+        "template": "standard-multi-deployment.yaml",
+        "services": [
+            {
+                "port": 80,
+                "targetPort": 5001
+            }
+        ]
+    }
+]

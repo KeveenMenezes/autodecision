@@ -1,0 +1,26 @@
+trigger: none
+
+resources:
+  repositories:
+    - repository: devops
+      type: git
+      name: 'BMG Money/devops'
+      ref: refs/tags/1-stable
+
+pool:
+  name: DevopsPool
+  workspace:
+    clean: all
+
+extends:
+  template: deploy/netcore-all-sonar.yml@devops
+  parameters:
+    project: 'src/Api/*.csproj'                                 # solution folder
+    sonarProjectKey: "autodecision-multiple-flags-processor"    # name of project on sonarqube
+    netVersion: '8.0.x'                                         # .net version
+    testProject: ''                                             # tests/**/*.csproj
+    exclusions: ''                                              # sonar exclusions
+    MonorepoQualityGate: 'MonoRepoMoney'                        # MonoRepoMoney
+    newRelicAppName: ''                                         # Name of newrelic application
+    configFile: ''                                              # If passed, will replace tokens inside that config file
+    additionalVariableGroup: ''                                 # Add name o variable groups extra that need to be added

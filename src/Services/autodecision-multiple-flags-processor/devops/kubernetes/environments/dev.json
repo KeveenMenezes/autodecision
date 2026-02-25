@@ -1,0 +1,28 @@
+[
+    {
+        "name": "autodecision-multiple-flags-processor",
+        "replicas": 2,
+        "resources": {
+            "limits": {
+                "cpu": "250m",
+                "ephemeralStorage": "512Mi",
+                "memory": "1Gi"
+            },
+            "requests": {
+                "cpu": "250m",
+                "ephemeralStorage": "512Mi",
+                "memory": "1Gi"
+            }
+        },
+        "autoscaling": {
+            "metrics": {
+                "resource": {
+                    "name": "cpu",
+                    "targetAverageUtilization": 75
+                }
+            },
+            "minReplicas": 2,
+            "maxReplicas": 2
+        }
+    }
+]

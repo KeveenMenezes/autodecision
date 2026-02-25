@@ -1,0 +1,31 @@
+pr: none
+trigger:
+  branches:
+      include:
+      - main
+      - development
+      - staging
+      - candidate
+  paths:
+      exclude:
+      - README.md
+      - .gitignore
+
+pool: DevopsPool
+
+resources:
+  repositories:
+  - repository: devops
+    type: git
+    name: 'BMG Money/devops'
+    ref: refs/heads/develop
+
+extends:
+  template: deploy/netcore-pack.yml@devops
+  parameters:
+    solutionFolder: 'src'
+    subFolder: ''
+    netVersion: '8.0.x'
+    majorVersion: '1'
+    minorVersion: '3'
+    patchVersion: '43'
