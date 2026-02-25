@@ -1,0 +1,39 @@
+pr: none
+
+trigger:
+  branches:
+      include:
+      - main
+      - candidate
+      - staging
+      - development
+  paths:
+      exclude:
+      - README.md
+      - .gitignore
+
+pool: 
+  name: DevopsPool
+  workspace:
+    clean: all
+
+resources:
+  repositories:
+    - repository: devops
+      type: git
+      name: 'BMG Money/devops'
+      ref: refs/tags/1-stable
+
+extends:
+  template: deploy/netcore-all-sonar.yml@devops
+  parameters:
+    project: 'autodecision_core/Api/AutodecisionCore.csproj'                                # solution folder
+    sonarProjectKey: "autodecision-core"                                                    # name of project on sonarqube
+    netVersion: '8.0.x'                                                                     # .net version
+    testProject: 'autodecision_core/AutodecisionCore.Tests/AutodecisionCore.Tests.csproj'   # tests/**/*.csproj
+    exclusions: ''                                                                          # sonar exclusions
+    MonorepoQualityGate: 'MonoRepoMoney'                                                    # MonoRepoMoney
+    newRelicAppName: ''                                                                     # Name of newrelic application
+    configFile: ''                                                                          # If passed, will replace tokens inside that config file
+    additionalVariableGroup: ''                                                             # Add name o variable groups extra that need to be added
+  

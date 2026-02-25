@@ -1,0 +1,106 @@
+[
+    {
+        "name": "autodecision-core",
+        "replicas": 1,
+        "resources": {
+            "limits": {
+                "cpu": "250m",
+                "ephemeralStorage": "100Mi",
+                "memory": "512Mi"
+            },
+            "requests": {
+                "cpu": "250m",
+                "ephemeralStorage": "100Mi",
+                "memory": "512Mi"
+            }
+        },
+        "autoscaling": {
+            "metrics": {
+                "resource": {
+                    "name": "cpu",
+                    "targetAverageUtilization": 80
+                }
+            },
+            "minReplicas": 1,
+            "maxReplicas": 1
+        }
+    },
+    {
+        "name": "autodecision-core-flagresponse",
+        "replicas": 1,
+        "resources": {
+            "limits": {
+                "cpu": "250m",
+                "ephemeralStorage": "100Mi",
+                "memory": "512Mi"
+            },
+            "requests": {
+                "cpu": "250m",
+                "ephemeralStorage": "100Mi",
+                "memory": "512Mi"
+            }
+        },
+        "autoscaling": {
+            "metrics": {
+                "resource": {
+                    "name": "cpu",
+                    "targetAverageUtilization": 80
+                }
+            },
+            "minReplicas": 1,
+            "maxReplicas": 1
+        }
+    },
+    {
+        "name": "autodecision-core-notifications",
+        "replicas": 1,
+        "resources": {
+            "limits": {
+                "cpu": "250m",
+                "ephemeralStorage": "100Mi",
+                "memory": "512Mi"
+            },
+            "requests": {
+                "cpu": "250m",
+                "ephemeralStorage": "100Mi",
+                "memory": "512Mi"
+            }
+        },
+        "autoscaling": {
+            "metrics": {
+                "resource": {
+                    "name": "cpu",
+                    "targetAverageUtilization": 80
+                }
+            },
+            "minReplicas": 1,
+            "maxReplicas": 1
+        }
+    },
+    {
+        "name": "autodecision-core-finalevaluation",
+        "replicas": 1,
+        "resources": {
+            "limits": {
+                "cpu": "250m",
+                "ephemeralStorage": "100Mi",
+                "memory": "512Mi"
+            },
+            "requests": {
+                "cpu": "250m",
+                "ephemeralStorage": "100Mi",
+                "memory": "512Mi"
+            }
+        },
+        "autoscaling": {
+            "metrics": {
+                "resource": {
+                    "name": "cpu",
+                    "targetAverageUtilization": 80
+                }
+            },
+            "minReplicas": 1,
+            "maxReplicas": 1
+        }
+    }
+]

@@ -1,0 +1,46 @@
+[
+	{
+		"name": "autodecision-core",
+		"template": "standard-multi-deployment.yaml",
+		"args": ["core"],
+		"services": [
+			{
+				"port": 80,
+				"targetPort": 5001
+			}
+		]
+	},
+	{
+		"name": "autodecision-core-flagresponse",
+		"template": "standard-multi-deployment.yaml",
+		"args": ["flagresponse"],
+		"services": [
+			{
+				"port": 80,
+				"targetPort": 5001
+			}
+		]
+	},
+	{
+		"name": "autodecision-core-notifications",
+		"template": "standard-multi-deployment.yaml",
+		"args": [ "notifications" ],
+		"services": [
+			{
+				"port": 80,
+				"targetPort": 5001
+			}
+		]
+	},
+	{
+		"name": "autodecision-core-finalevaluation",
+		"template": "standard-multi-deployment.yaml",
+		"args": [ "finalevaluation" ],
+		"services": [
+			{
+				"port": 80,
+				"targetPort": 5001
+			}
+		]
+	}
+]
